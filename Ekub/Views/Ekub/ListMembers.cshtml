@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Ekub.ViewModels.ListMemberViewModel>
+@{
+    ViewBag.Title = "ListMembers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var members in Model)
+{
+    <h2>List of Members</h2>
+    <table class="table tabled">
+       <thead>
+           <tr>
+               <th scope="col">Name</th>
+               <th scope="col">Gender</th>
+               <th scope="col">Age</th>
+               <th scope="col">Details</th>
+               <th scope="col">Delete All Informations</th>
+           </tr>
+       </thead>
+       <tbody>
+           @for (int i = 0; i <  Math.Max(members.MyMember.Count, members.MyEkub.Count); i++)
+           {
+           <tr>
+
+               <td scope="row">@members.MyMember[i].Name</td>
+               <td scope="row">@members.MyMember[i].Age</td>
+               <td scope="row">@members.MyMember[i].Gender</td>
+               <td scope="row">
+                   @Html.Hidden("id", members.MyMember[i].Id)
+                   @Html.ActionLink("Details", "Details", new { id = members.MyMember[i].Id, EkubId = members.MyEkub[i].Id }, new { @class = "btn btn-info" })
+
+                   
+               </td>
+               <td scope="row">
+                   <button type="button" class="btn btn-info"
+                           onclick="location.href='@Url.Action("Delete", "Ekub", new { MembersId = members.MyMember[i].Id, EkubId = members.MyEkub[i].Id })'">
+                       Delete
+                   </button>
+
+               </td>
+
+
+           </tr>
+
+           }
+
+       </tbody>
+        
+    </table>
+    
+
+}

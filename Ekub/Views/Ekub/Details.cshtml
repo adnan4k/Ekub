@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Ekub.ViewModels.DetialsViewModel>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-bg-secondary p-3 rounded">
+    @foreach (var member in Model)
+
+    {
+        <style>
+            .info-container {
+                display: flex; /* Use flexbox for flexible layout */
+            }
+
+            .info-block {
+                margin-right: 40px; /* Add spacing between sections */
+            }
+
+            .label {
+                font-weight: bold;
+            }
+        </style>
+
+        <div class="info-container">
+            <div class="info-block">
+                <h2>Personal Info</h2>
+                <br />
+                <b>Name: </b><p style="display: inline;">@member.members.Name</p><br>
+                <br />
+                <b>Date Of Birth: </b><p style="display: inline;">@member.members.DateOfBirth</p><br>
+                <br />
+                <b>Age: </b><p style="display: inline;">@member.members.Age</p><br>
+                <br />
+
+                <br />
+                <b>Gender: </b><p style="display: inline;">@member.members.Gender</p><br>
+                <br />
+            </div>
+
+            <div class="info-block">
+                <h2>Ekub Info</h2>
+                <br />
+                <b class="label">Day: </b><p style="display: inline;">@member.ekubInfo.Day</p><br>
+                <br />
+                <b class="label">Total: </b><p style="display: inline;">@member.ekubInfo.Id</p><br>
+                <br />
+                <b class="label">Day:</b><p style="display: inline;">@member.ekubInfo.Day</p><br>
+                <b
+            </div>
+        </div>
+
+
+
+    }
+
+
+    <br>
+
+</div>

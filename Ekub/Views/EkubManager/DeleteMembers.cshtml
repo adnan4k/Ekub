@@ -1,0 +1,12 @@
+﻿@model Ekub.Models.Members
+
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>@Model.Name</h2>
+@using (Html.BeginForm("DeleteMembers", "EkubManager"))
+            {
+                <button type="submit">Delete</button>
+            }

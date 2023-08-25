@@ -1,0 +1,18 @@
+﻿@model Ekub.Models.Members
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+@using (Html.BeginForm("Delete", "Ekub"))
+{
+    <label>Enter name to Delete</label>
+    <input type="text" name="name" />
+    <br />
+    <label>Enter Ekub name to Delete</label>
+    <input type="text" name="EkubName" />
+    <button type="submit">Button</button>
+}
+
+

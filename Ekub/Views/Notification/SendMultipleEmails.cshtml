@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "SendMultipleEmails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-bg-secondary p-3 rounded mx-auto">
+    <h2>Send  Emails</h2>
+
+    @using (Html.BeginForm("SendMultipleEmails", "Notification"))
+    {
+        <br />
+        <h5>Enter subject</h5>
+
+        <input name="subject" type="text" />
+        <br />
+        <br />
+        <h5>Enter Body</h5>
+
+        <textarea name="body" type="text" class="form-control" style="width:70%;"> </textarea>
+        <br />
+        <br />
+        <button id="email" class="btn btn-primary">Send Email</button>
+    }
+
+    <h2 id="success"></h2>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#email").click(function () {
+
+                $.ajax({
+                    url: "/Notification/SendMultipleEmails",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+
+                        console.log("success full");
+                        $("#success").text("the email has been sent successfully");
+                    },
+                    error: function () {
+                        console.log("error occurred");
+                    }
+                });
+
+            });
+        });
+
+    </script>
+
+</div>
